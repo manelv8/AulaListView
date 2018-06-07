@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AulaListView</string>
+    <string-array name="lista_cidades">
+        <item>Fortaleza</item>
+        <item>Teresina</item>
+        <item>Pacatuba</item>
+        <item>Caucaia</item>
+    </string-array>
+</resources>
