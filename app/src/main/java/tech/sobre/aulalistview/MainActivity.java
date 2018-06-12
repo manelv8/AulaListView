@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
 
     ListView listview;
+    EditText etCidade;
     String minhaLista[];
     ArrayList<String> arrayList;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listview = findViewById(R.id.listview);
+
+        etCidade = findViewById(R.id.etCidade);
 
         minhaLista = getResources().getStringArray(R.array.lista_cidades);
 
@@ -63,4 +67,18 @@ public class MainActivity extends AppCompatActivity {
 //       });
 
     }
+
+
+    public void addItem(View view) {
+        String cidade = etCidade.getText().toString();
+        if(cidade.isEmpty()){
+            Toast.makeText(this,"digite uma cidade", Toast.LENGTH_SHORT).show();
+        }else{
+            arrayList.add(cidade);
+            adapter.notifyDataSetChanged();
+            etCidade.setText("");
+        }
+
+    }
+
 }
